@@ -1,0 +1,6 @@
+displaylogo.c:66:6:adjustCorePower	16	static
+displaylogo.c:91:5:readlogofile	56	static
+displaylogo.c:121:5:Logo_LoadBinFile	152	static
+displaylogo.c:145:6:Load_TS_YPBPR_VGA_CalValue	160	static
+displaylogo.c:221:6:Load_PQbin	136	static
+displaylogo.c:244:6:logo_display_main	48	static

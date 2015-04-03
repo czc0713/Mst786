@@ -1,0 +1,10 @@
+build.c:361:13:kill_volumes	16	static
+build.c:145:20:ubi_get_device	0	static
+build.c:165:6:ubi_put_device	0	static
+build.c:181:20:ubi_get_by_major	0	static
+build.c:210:5:ubi_major2num	0	static
+build.c:717:5:ubi_attach_mtd_dev	240	static
+build.c:885:5:ubi_detach_mtd_dev	16	static
+build.c:964:12:ubi_init	32	static
+build.c:1054:13:ubi_exit	16	static
+build.c:1120:12:ubi_mtd_param_parse	96	static

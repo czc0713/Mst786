@@ -1,0 +1,3 @@
+hal_card_regs.c:38:6:Hal_CREG_SET_PORT	0	static
+hal_card_regs.c:43:21:Hal_CREG_GET_PORT	0	static
+hal_card_regs.c:48:16:Hal_CREG_GET_REG_BANK	0	static

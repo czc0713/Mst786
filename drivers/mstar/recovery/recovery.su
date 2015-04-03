@@ -1,0 +1,5 @@
+recovery.c:25:5:boot_mode_recovery	136	static
+recovery.c:46:5:boot_mode_upgradebootloader	8	static
+recovery.c:55:14:get_boot_mode_from_env	0	static
+recovery.c:71:14:get_boot_mode_from_mtd0	136	static
+recovery.c:118:5:do_bootcheck	8	static

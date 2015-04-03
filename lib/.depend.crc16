@@ -1,0 +1,8 @@
+crc16.o: crc16.c \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/crc.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/config.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/posix_types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/stddef.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/posix_types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/types.h

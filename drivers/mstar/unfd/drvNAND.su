@@ -1,0 +1,14 @@
+drvNAND.c:249:13:_unfd_nand_hwcontrol	0	static
+drvNAND.c:256:12:_unfd_nand_device_ready	0	static
+drvNAND.c:436:12:_unfd_nand_wait	0	static
+drvNAND.c:542:13:_unfd_nand_enable_hwecc	0	static
+drvNAND.c:549:12:_unfd_nand_calculate_ecc	0	static
+drvNAND.c:556:12:_unfd_nand_correct_data	0	static
+drvNAND.c:408:12:_unfd_nand_read_word	8	static
+drvNAND.c:423:15:_unfd_nand_read_byte	8	static
+drvNAND.c:449:13:_unfd_nand_cmdfunc	24	static
+drvNAND.c:263:13:_unfd_nand_write_buf	32	static
+drvNAND.c:331:13:_unfd_nand_read_buf	16	static
+drvNAND.c:568:5:drvNAND_Init	8	static
+drvNAND.c:593:5:nand_unfd_init	16	static
+drvNAND.c:692:5:board_nand_init	40	static

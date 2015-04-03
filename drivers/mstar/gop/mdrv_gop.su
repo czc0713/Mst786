@@ -1,0 +1,5 @@
+mdrv_gop.c:9:6:OALReadDeviceId	0	static
+mdrv_gop.c:21:5:GOP_MIU_BUS	0	static
+mdrv_gop.c:59:20:ms_mem_bus_to_MIU	0	static
+mdrv_gop.c:66:6:GOP_Setmode	40	static
+mdrv_gop.c:225:6:GOP_Pan_Display	12	static

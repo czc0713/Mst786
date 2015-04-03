@@ -1,0 +1,6 @@
+memsize.o: memsize.c \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/config.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/config_cmd_defaults.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/config_defaults.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/configs/cedric.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/config.h

@@ -1,0 +1,3 @@
+cmd_osd.c:385:13:2	2800	static
+cmd_osd.c:512:6:UPDPrintLineSize	88	static
+cmd_osd.c:518:6:DrawProgressBar	40	static

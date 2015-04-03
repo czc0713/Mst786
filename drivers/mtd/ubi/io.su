@@ -1,0 +1,12 @@
+swab.h:112:48:__fswab32	0	static
+io.c:289:13:erase_callback	0	static
+io.c:303:12:do_sync_erase	112	static
+io.c:138:5:ubi_io_read	72	static
+io.c:220:5:ubi_io_write	56	static
+io.c:474:5:ubi_io_sync_erase	40	static
+io.c:510:5:ubi_io_is_bad	24	static
+io.c:539:5:ubi_io_mark_bad	24	static
+io.c:631:5:ubi_io_read_ec_hdr	40	static
+io.c:739:5:ubi_io_write_ec_hdr	24	static
+io.c:905:5:ubi_io_read_vid_hdr	64	static
+io.c:1014:5:ubi_io_write_vid_hdr	24	static

@@ -1,0 +1,5 @@
+swab.h:112:48:__fswab32	0	static
+vtbl.c:130:12:vtbl_check	56	static
+vtbl.c:258:12:create_vtbl	80	static
+vtbl.c:88:5:ubi_change_vtbl_record	40	static
+vtbl.c:745:5:ubi_read_volume_table	56	static

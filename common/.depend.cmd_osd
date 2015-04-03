@@ -1,0 +1,4 @@
+cmd_osd.o: cmd_osd.c \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/cmd_osd.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/arch/mach/ms_types.h \
+ ../drivers/mstar/displaylogo/displaylogo.h

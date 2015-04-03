@@ -1,0 +1,16 @@
+string.o: string.c \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/config.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/posix_types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/stddef.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/posix_types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/string.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/string.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/config.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/config_cmd_defaults.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/config_defaults.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/configs/cedric.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/config.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/ctype.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/malloc.h

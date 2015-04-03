@@ -1,0 +1,9 @@
+main.c:1075:15:0	24	static
+main.c:53:13:__show_boot_progress	0	static
+main.c:943:5:readline_into_buffer	48	static
+main.c:931:5:readline	0	static
+main.c:1107:5:parse_line	8	static
+main.c:1282:12:builtin_run_command	1720	static
+main.c:1380:5:run_command	8	static
+main.c:276:6:main_loop	80	static
+main.c:1400:5:do_run	24	static

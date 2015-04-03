@@ -1,0 +1,17 @@
+swab.h:112:48:__fswab32	0	static
+eba.c:100:32:ltree_lookup	0	static
+ubi.h:573:20:ubi_free_vid_hdr	0	static
+eba.c:312:13:leb_write_unlock	16	static
+eba.c:228:13:leb_read_unlock	16	static
+swab.h:126:48:__fswab64	16	static
+eba.c:139:32:ltree_add_entry	24	static
+ubi.h:612:20:ubi_ro_mode	0	static
+ubi.h:553:1:2	8	static
+eba.c:343:5:ubi_eba_unmap_leb	24	static
+eba.c:389:5:ubi_eba_read_leb	56	static
+eba.c:613:5:ubi_eba_write_leb	64	static
+eba.c:744:5:ubi_eba_write_leb_st	56	static
+eba.c:859:5:ubi_eba_atomic_leb_change	56	static
+eba.c:977:5:ubi_eba_copy_leb	56	static
+eba.c:1155:5:ubi_eba_init_scan	56	static
+eba.c:1245:6:ubi_eba_close	16	static

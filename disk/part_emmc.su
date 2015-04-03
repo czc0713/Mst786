@@ -1,0 +1,10 @@
+part_emmc.c:81:12:2	8	static
+part_emmc.c:125:12:3	16	static
+part_emmc.c:50:12:6	16	static
+part_emmc.c:147:5:test_part_emmc	8	static
+part_emmc.c:159:6:print_part_emmc	32	static
+part_emmc.c:198:5:get_partition_info_emmc	16	static
+part_emmc.c:321:5:init_NVRAM_pdb	16	static
+part_emmc.c:457:5:create_new_NVRAM_partition	1064	static
+part_emmc.c:491:5:delete_NVRAM_all_partition	1040	static
+part_emmc.c:530:5:remove_NVRAM_partition	1048	static

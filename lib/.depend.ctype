@@ -1,0 +1,2 @@
+ctype.o: ctype.c \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/ctype.h

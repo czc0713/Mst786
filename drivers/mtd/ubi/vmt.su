@@ -1,0 +1,7 @@
+swab.h:112:48:__fswab32	0	static
+vmt.c:132:13:vol_release	0	static
+vmt.c:210:5:ubi_create_volume	224	static
+vmt.c:417:5:ubi_remove_volume	32	static
+vmt.c:497:5:ubi_resize_volume	216	static
+vmt.c:621:5:ubi_add_volume	8	static
+vmt.c:679:6:ubi_free_volume	0	static

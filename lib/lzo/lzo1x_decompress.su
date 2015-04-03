@@ -1,0 +1,6 @@
+le_byteshift.h:11:19:__get_unaligned_le32	0	static
+be_byteshift.h:11:19:__get_unaligned_be32	0	static
+lzo1x_decompress.c:33:36:parse_header	16	static
+lzo1x_decompress.c:175:5:lzo1x_decompress_safe	56	static
+lzo1x_decompress.c:113:5:lzop_decompress_part	48	static
+lzo1x_decompress.c:65:5:lzop_decompress	40	static

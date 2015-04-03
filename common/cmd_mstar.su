@@ -1,0 +1,14 @@
+cmd_mstar.c:1085:12:do_mmc_write_emptyskip	48	static
+cmd_mstar.c:334:14:get_script_next_line	16	static
+cmd_mstar.c:1023:5:do_emmc_cis	16	static
+cmd_mstar.c:885:5:do_ubi_mwrite_from_mmc	56	static
+cmd_mstar.c:713:5:do_cis	16	static
+cmd_mstar.c:636:5:do_scfgenv	72	static
+cmd_mstar.c:76:12:get_scfg_token	16	static
+cmd_mstar.c:406:5:do_mstar	24	static
+cmd_mstar.c:463:5:do_dstar	40	static
+cmd_mstar.c:793:5:do_fat_fsread	56	static
+cmd_mstar.c:162:6:parseSCA_MMAP	64	static
+cmd_mstar.c:665:5:do_parseSCA_MMAP	24	static
+cmd_mstar.c:1660:5:do_unlzo	144	static
+cmd_mstar.c:1155:5:do_emmc	136	static

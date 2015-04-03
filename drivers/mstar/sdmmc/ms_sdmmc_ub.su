@@ -1,0 +1,4 @@
+ms_sdmmc_ub.c:191:12:mmc_send_cmd	64	static
+ms_sdmmc_ub.c:289:13:mmc_set_ios	16	static
+ms_sdmmc_ub.c:343:12:mmc_core_init	24	static
+ms_sdmmc_ub.c:421:5:board_mmc_init	16	static

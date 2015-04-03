@@ -1,0 +1,2 @@
+cpu.c:40:6:save_boot_params_default	0	static
+cpu.c:47:5:cleanup_before_linux	8	static

@@ -1,0 +1,7 @@
+drvNAND_prg.c:4:5:drvNAND_GetNandID	16	static
+drvNAND_prg.c:16:5:drvNAND_CheckCIS	16	static
+drvNAND_prg.c:56:5:drvNAND_WriteCIS_for_ROM_2	64	static
+drvNAND_prg.c:248:5:drvNAND_GetNandInfo	16	static
+drvNAND_prg.c:275:5:drvNAND_SearchNandInfo	24	static
+drvNAND_prg.c:310:5:drvNAND_GetPartOffset	16	static
+drvNAND_prg.c:328:6:drvNAND_GetMtdParts	104	static

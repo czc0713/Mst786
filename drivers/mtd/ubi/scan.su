@@ -1,0 +1,14 @@
+swab.h:112:48:__fswab32	0	static
+list.h:98:20:list_del	0	static
+ubi.h:573:20:ubi_free_vid_hdr	0	static
+swab.h:126:48:__fswab64	16	static
+scan.c:114:12:validate_vid_hdr	32	static
+scan.c:73:12:add_to_list	16	static
+scan.c:402:5:ubi_scan_add_used	120	static
+scan.c:569:25:ubi_scan_find_sv	0	static
+scan.c:599:22:ubi_scan_find_seb	0	static
+scan.c:625:6:ubi_scan_rm_volume	24	static
+scan.c:656:5:ubi_scan_erase_peb	24	static
+scan.c:701:22:ubi_scan_get_free_peb	32	static
+scan.c:1035:6:ubi_scan_destroy_si	24	static
+scan.c:906:23:ubi_scan	72	static

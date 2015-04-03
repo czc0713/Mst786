@@ -1,0 +1,4 @@
+bootm.c:316:13:boot_jump_linux	16	static
+bootm.c:267:13:boot_prep_linux	16	static
+bootm.c:56:6:arch_lmb_reserve	0	static
+bootm.c:352:5:do_bootm_linux	16	static

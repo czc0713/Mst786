@@ -1,0 +1,15 @@
+serial.c:84:6:ms_putc	0	static
+serial.c:106:6:serial_putc	8	static
+serial.c:128:5:serial_getc	0	static
+serial.c:153:5:serial_tstc	0	static
+serial.c:173:6:serial_setbrg	0	static
+serial.c:54:5:serial_init	8	static
+serial.c:216:6:serial_puts	8	static
+serial.c:291:6:serial4_setbrg	0	static
+serial.c:238:5:serial4_init	16	static
+serial.c:320:6:serial4_ms_putc	0	static
+serial.c:343:5:serial4_getc	0	static
+serial.c:368:6:serial4_putc	8	static
+serial.c:390:5:serial4_tstc	0	static
+serial.c:411:6:serial4_puts	16	static
+serial.c:420:6:uboot_TellMCU_OpenBackLight	24	static

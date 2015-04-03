@@ -1,0 +1,12 @@
+crc32.o: crc32.c \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/config.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/posix_types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/stddef.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/posix_types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/types.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/asm/byteorder.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/byteorder/little_endian.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/byteorder/swab.h \
+ /home/zhicaic/workspace/mst786/uboot/201204_01/include/linux/byteorder/generic.h \
+ crc32defs.h crc32table.h

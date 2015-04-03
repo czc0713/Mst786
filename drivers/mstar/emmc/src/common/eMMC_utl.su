@@ -1,0 +1,8 @@
+eMMC_utl.c:84:5:eMMC_CheckAlignPack	16	static
+eMMC_utl.c:134:6:eMMC_dump_mem	24	static
+eMMC_utl.c:143:5:eMMC_ComapreData	24	static
+eMMC_utl.c:175:5:eMMC_ChkSum	8	static
+eMMC_utl.c:186:5:eMMC_CompareCISTag	0	static
+eMMC_utl.c:200:5:eMMC_PrintDeviceInfo	528	static
+eMMC_utl.c:286:6:eMMC_dump_nni	0	static
+eMMC_utl.c:322:6:eMMC_dump_pni	0	static

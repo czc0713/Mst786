@@ -1,0 +1,700 @@
+/*-----------------------------------------------------------------------------
+ *
+ * Copyright (c) 2009 MStar Semiconductor, Inc.  All rights reserved.
+ *
+ *-----------------------------------------------------------------------------
+ * FILE
+ *     platform.h
+ *
+ * DESCRIPTION
+ *      Platform specific declarations.
+ *
+ * HISTORY
+ *      <Date>      <Author>        <Modification Description>
+ */
+
+
+#ifndef	__PLATFORM_H__
+#define	__PLATFORM_H__
+
+//------------------------------------------------------------------------------
+//  Include Files
+//------------------------------------------------------------------------------
+#include "asm/arch/mach/ms_types.h"
+
+//------------------------------------------------------------------------------
+//  Macros
+//------------------------------------------------------------------------------
+
+// Register macros
+#define REG(Reg_Addr)       (*(volatile U16*)(Reg_Addr))
+#define GET_REG_ADDR(x, y)  ((x) + ((y) << 2))
+
+//------------------------------------------------------------------------------
+//
+//  Macros:  INREGx/OUTREGx/SETREGx/CLRREGx
+//
+//  This macros encapsulates basic I/O operations.
+//  Memory address space operation is used on all platforms.
+//
+#define INREG8(x)           ms_readb(x)
+#define OUTREG8(x, y)       ms_writeb((u8)(y), x)
+#define SETREG8(x, y)       OUTREG8(x, INREG8(x)|(y))
+#define CLRREG8(x, y)       OUTREG8(x, INREG8(x)&~(y))
+#define INREGMSK8(x, y)     (INREG8(x) & (y))
+#define OUTREGMSK8(x, y, z) OUTREG8(x, ((INREG8(x)&~(z))|((y)&(z))))
+
+#define INREG16(x)              ms_readw(x)
+#define OUTREG16(x, y)          ms_writew((u16)(y), x)
+#define SETREG16(x, y)          OUTREG16(x, INREG16(x)|(y))
+#define CLRREG16(x, y)          OUTREG16(x, INREG16(x)&~(y))
+#define INREGMSK16(x, y)        (INREG16(x) & (y))
+#define OUTREGMSK16(x, y, z)    OUTREG16(x, ((INREG16(x)&~(z))|((y)&(z))))
+
+#define INREG32(x)              ms_readl(x)
+#define OUTREG32(x, y)          ms_writel((u32)(y), x)
+#define SETREG32(x, y)          OUTREG32(x, INREG32(x)|(y))
+#define CLRREG32(x, y)          OUTREG32(x, INREG32(x)&~(y))
+#define INREGMSK32(x, y)        (INREG32(x) & (y))
+#define OUTREGMSK32(x, y, z)    OUTREG32(x, ((INREG32(x)&~(z))|((y)&(z))))
+
+
+#define XTAL_26000K        26000000
+#define XTAL_24000K        24000000
+#define XTAL_16369K        16369000
+#define XTAL_16367K        16367000
+
+//-----------------------------------------------------------------------------
+
+// Chip revisions
+#define MS_REVISION_U01    (0x0)
+#define MS_REVISION_U02    (0x1)
+#define MS_REVISION_U03    (0x2)
+
+
+//------------------------------------------------------------------------------
+//
+//  Macros:  TYPE_CAST
+//
+//  This macros interprets the logic of type casting and shows the old type and
+//  the new type of the casted variable.
+//
+#define TYPE_CAST(OldType, NewType, Var)    ((NewType)(Var))
+
+//------------------------------------------------------------------------------
+//
+//  Macros:  MSTAR_ASSERT
+//
+//  This macro implements the assertion no matter in Debug or Release build.
+//
+#define MSTAR_ASSERT_PRINT(exp,file,line) printk(("\r\n*** ASSERTION FAILED in ") (file) ("(") (#line) ("):\r\n") (#exp) ("\r\n"))
+#define MSTAR_ASSERT_AT(exp,file,line) (void)( (exp) || (MSTAR_ASSERT_PRINT(exp,file,line), 0 ) )
+#define MSTAR_ASSERT(exp) MSTAR_ASSERT_AT(exp,__FILE__,__LINE__)
+
+// need review!!
+/* used to identify FPGA and QC boards */
+#define QC_BOARD            0
+#define UBOOT_VERSION_FPGA      0 //KY: replace the COLUMBUS_FPGA
+//#define ANDRIOD_LINUX       0
+
+#define COLUMBUS    0
+#define PIONEER     1
+#define COLUMBUS2   2
+#define CEDRIC      3
+#define PLATFORM    CEDRIC
+
+
+//------------------------------------------------------------------------------
+//
+//  Define:  MSBASE_REG_RIU_PA
+//
+//  Locates the RIU register base.
+//
+#define MS_BASE_REG_RIU_PA					(0x1F000000)
+#define MS_BASE_REG_UART0_PA              	GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x0804C0)
+#define MS_BASE_REG_UART1_PA                GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x088300)
+#define MS_BASE_REG_UART2_PA                GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x088320)
+#define MS_BASE_REG_UART3_PA                GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x0A9800)
+#define MS_BASE_REG_UART4_PA                GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x088340)
+#define MS_BASE_REG_UART5_PA                GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x088360)
+
+#define BK_REG(reg)                         ((reg) * 4)
+
+#define MS_BASE_REG_TIMER2_PA              	GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x0A8D80)
+#define MS_BASE_REG_CHIPGPIO_PA             GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x081580)//bank0x102b
+#define MS_BASE_REG_CHIPGPIO1_PA            GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x080D00)//bank0x101A
+#define MS_BASE_REG_CHIPTOP_PA              GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x080F00)
+
+#define MS_BASE_REG_CLKGEN0_PA        GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x080580)
+#define MS_BASE_REG_CLKGEN1_PA        GET_REG_ADDR(MS_BASE_REG_RIU_PA, 0x081980)
+
+#define CHIPTOP_REG_54                      BK_REG(0x54)
+#define CHIPTOP_REG_03                      BK_REG(0x03)
+
+typedef struct
+{
+    U16 REG_CLKGEN0_00;
+    U16 u16REG_RESERVED_00;
+
+    U16 REG_CLKGEN0_01;
+    U16 u16REG_RESERVED_01;
+
+    U16 REG_CLKGEN0_02;
+    U16 u16REG_RESERVED_02;
+
+    U16 REG_CLKGEN0_03;
+    U16 u16REG_RESERVED_03;
+
+    U16 REG_CLKGEN0_04;
+    U16 u16REG_RESERVED_04;
+
+    U16 REG_CLKGEN0_05;
+    U16 u16REG_RESERVED_05;
+
+    U16 REG_CLKGEN0_06;
+    U16 u16REG_RESERVED_06;
+
+    U16 REG_CLKGEN0_07;
+    U16 u16REG_RESERVED_07;
+
+    U16 REG_CLKGEN0_08;
+    U16 u16REG_RESERVED_08;
+
+    U16 REG_CLKGEN0_09;
+    U16 u16REG_RESERVED_09;
+
+    U16 REG_CLKGEN0_0A;
+    U16 u16REG_RESERVED_0A;
+
+    U16 REG_CLKGEN0_0B;
+    U16 u16REG_RESERVED_0B;
+
+    U16 REG_CLKGEN0_0C;
+    U16 u16REG_RESERVED_0C;
+
+    U16 REG_CLKGEN0_0D;
+    U16 u16REG_RESERVED_0D;
+
+    U16 REG_CLKGEN0_0E;
+    U16 u16REG_RESERVED_0E;
+
+    U16 REG_CLKGEN0_0F;
+    U16 u16REG_RESERVED_0F;
+
+    U16 REG_CLKGEN0_10;
+    U16 u16REG_RESERVED_10;
+
+    U16 REG_CLKGEN0_11;
+    U16 u16REG_RESERVED_11;
+
+    U32 u32REG_RESERVED_12;
+
+	U16 REG_CLKGEN0_13;
+    U16 u32REG_RESERVED_13;
+
+    U16 REG_CLKGEN0_14;
+    U16 u16REG_RESERVED_14;
+
+    U16 REG_CLKGEN0_15;
+    U16 u16REG_RESERVED_15;
+    U32 u32REG_RESERVED_16;
+
+	U16 REG_CLKGEN0_17;
+    U16 u32REG_RESERVED_17;
+
+	U16 REG_CLKGEN0_18;
+    U16 u32REG_RESERVED_18;
+
+    U32 u32REG_RESERVED_19;
+
+    U16 REG_CLKGEN0_1A;
+    U16 u16REG_RESERVED_1A;
+
+    U16 REG_CLKGEN0_1B;
+    U16 u16REG_RESERVED_1B;
+
+    U16 REG_CLKGEN0_1C;
+    U16 u16REG_RESERVED_1C;
+
+    U16 REG_CLKGEN0_1D;
+    U16 u16REG_RESERVED_1D;
+
+    U16 REG_CLKGEN0_1E;
+    U16 u16REG_RESERVED_1E;
+
+    U16 REG_CLKGEN0_1F;
+    U16 u16REG_RESERVED_1F;
+
+    U32 u32REG_RESERVED_20;
+    U32 u32REG_RESERVED_21;
+
+    U16 REG_CLKGEN0_22;
+    U16 u16REG_RESERVED_22;
+
+    U16 REG_CLKGEN0_23;
+    U16 u16REG_RESERVED_23;
+
+    U16 REG_CLKGEN0_24;
+    U16 u16REG_RESERVED_24;
+
+    U16 REG_CLKGEN0_25;
+    U16 u16REG_RESERVED_25;
+
+    U16 REG_CLKGEN0_26;
+    U16 u16REG_RESERVED_26;
+
+    U16 REG_CLKGEN0_27;
+    U16 u16REG_RESERVED_27;
+
+    U16 REG_CLKGEN0_28;
+    U16 u16REG_RESERVED_28;
+
+    U16 REG_CLKGEN0_29;
+    U16 u16REG_RESERVED_29;
+
+    U16 REG_CLKGEN0_2A;
+    U16 u16REG_RESERVED_2A;
+
+    U16 REG_CLKGEN0_2B;
+    U16 u16REG_RESERVED_2B;
+
+    U16 REG_CLKGEN0_2C;
+    U16 u16REG_RESERVED_2C;
+
+    U16 REG_CLKGEN0_2D;
+    U16 u16REG_RESERVED_2D;
+
+    U16 REG_CLKGEN0_2E;
+    U16 u16REG_RESERVED_2E;
+
+    U16 REG_CLKGEN0_2F;
+    U16 u16REG_RESERVED_2F;
+
+    U16 REG_CLKGEN0_30;
+    U16 u16REG_RESERVED_30;
+
+    U16 REG_CLKGEN0_31;
+    U16 u16REG_RESERVED_31;
+
+    U16 REG_CLKGEN0_32;
+    U16 u16REG_RESERVED_32;
+
+    U16 REG_CLKGEN0_33;
+    U16 u16REG_RESERVED_33;
+
+    U16 REG_CLKGEN0_34;
+    U16 u16REG_RESERVED_34;
+
+    U16 REG_CLKGEN0_35;
+    U16 u16REG_RESERVED_35;
+
+
+    U16 REG_CLKGEN0_36;
+    U16 u16REG_RESERVED_36;
+
+    U16 REG_CLKGEN0_37;
+    U16 u16REG_RESERVED_37;
+
+    U16 REG_CLKGEN0_38;
+    U16 u16REG_RESERVED_38;
+
+
+    U32 u32REG_RESERVED_39;
+    U32 u32REG_RESERVED_3A;
+
+    U16 REG_CLKGEN0_3B;
+    U16 u16REG_RESERVED_3B;
+
+    U16 REG_CLKGEN0_3C;
+    U16 u16REG_RESERVED_3C;
+
+    U16 REG_CLKGEN0_3D;
+    U16 u16REG_RESERVED_3D;
+
+    U16 REG_CLKGEN0_3E;
+    U16 u16REG_RESERVED_3E;
+
+    U16 REG_CLKGEN0_3F;
+    U16 u16REG_RESERVED_3F;
+
+    U16 REG_CLKGEN0_40;
+    U16 u16REG_RESERVED_40;
+
+    U16 REG_CLKGEN0_41;
+    U16 u16REG_RESERVED_41;
+
+    U16 REG_CLKGEN0_42;
+    U16 u16REG_RESERVED_42;
+
+    U16 REG_CLKGEN0_43;
+    U16 u16REG_RESERVED_43;
+
+    U16 REG_CLKGEN0_44;
+    U16 u16REG_RESERVED_44;
+
+    U16 REG_CLKGEN0_45;
+    U16 u16REG_RESERVED_45;
+
+    U16 REG_CLKGEN0_46;
+    U16 u16REG_RESERVED_46;
+
+    U16 REG_CLKGEN0_47;
+    U16 u16REG_RESERVED_47;
+
+    U16 REG_CLKGEN0_48;
+    U16 u16REG_RESERVED_48;
+
+    U16 REG_CLKGEN0_49;
+    U16 u16REG_RESERVED_49;
+
+    U16 REG_CLKGEN0_4A;
+    U16 u16REG_RESERVED_4A;
+
+    U16 REG_CLKGEN0_4B;
+    U16 u16REG_RESERVED_4B;
+
+    U16 REG_CLKGEN0_4C;
+    U16 u16REG_RESERVED_4C;
+
+    U16 REG_CLKGEN0_4D;
+    U16 u16REG_RESERVED_4D;
+
+    U16 REG_CLKGEN0_4E;
+    U16 u16REG_RESERVED_4E;
+
+    U16 REG_CLKGEN0_4F;
+    U16 u16REG_RESERVED_4F;
+
+    U16 REG_CLKGEN0_50;
+    U16 u16REG_RESERVED_50;
+
+    U16 REG_CLKGEN0_51;
+    U16 u16REG_RESERVED_51;
+
+    U16 REG_CLKGEN0_52;
+    U16 u16REG_RESERVED_52;
+
+    U16 REG_CLKGEN0_53;
+    U16 u16REG_RESERVED_53;
+
+
+    U32 u32REG_RESERVED_54;
+    U32 u32REG_RESERVED_55;
+    U32 u32REG_RESERVED_56;
+
+    U16 REG_CLKGEN0_57;
+    U16 u16REG_RESERVED_57;
+
+    U16 REG_CLKGEN0_58;
+    U16 u16REG_RESERVED_58;
+
+    U16 REG_CLKGEN0_59;
+    U16 u16REG_RESERVED_59;
+
+    U16 REG_CLKGEN0_5A;
+    U16 u32REG_RESERVED_5A;
+
+    U16 REG_CLKGEN0_5B;
+    U16 u16REG_RESERVED_5B;
+
+
+    U32 u32REG_RESERVED_5C;
+
+    U16 REG_CLKGEN0_5D;
+    U16 u16REG_RESERVED_5D;
+
+    U32 u32REG_RESERVED_5E;
+
+    U16 REG_CLKGEN0_5F;
+    U16 u16REG_RESERVED_5F;
+
+
+    U16 REG_CLKGEN0_60;
+    U16 u16REG_RESERVED_60;
+
+    U16 REG_CLKGEN0_61;
+    U16 u16REG_RESERVED_61;
+
+    U16 REG_CLKGEN0_62;
+    U16 u16REG_RESERVED_62;
+
+    U16 REG_CLKGEN0_63;
+    U16 u16REG_RESERVED_63;
+
+    U16 REG_CLKGEN0_64;
+    U16 u16REG_RESERVED_64;
+
+    U16 REG_CLKGEN0_65;
+    U16 u16REG_RESERVED_65;
+
+    U16 REG_CLKGEN0_66;
+    U16 u16REG_RESERVED_66;
+
+    U16 REG_CLKGEN0_67;
+    U16 u16REG_RESERVED_67;
+
+    U16 REG_CLKGEN0_68;
+    U16 u16REG_RESERVED_68;
+
+    U16 REG_CLKGEN0_69;
+    U16 u16REG_RESERVED_69;
+
+    U16 REG_CLKGEN0_6A;
+    U16 u16REG_RESERVED_6A;
+
+
+    U16 REG_CLKGEN0_6B;
+    U16 u16REG_RESERVED_6B;
+
+    U32 u32REG_RESERVED_6C;
+    U32 u32REG_RESERVED_6D;
+    U32 u32REG_RESERVED_6E;
+
+    U16 REG_CLKGEN0_F;
+    U16 u16REG_RESERVED_6F;
+
+    U16 REG_CLKGEN0_70;
+    U16 u16REG_RESERVED_70;
+
+    U32 u32REG_RESERVED_71;
+
+    U16 REG_CLKGEN0_72;
+    U16 u16REG_RESERVED_72;
+
+    U32 u32REG_RESERVED_73;
+    U32 u32REG_RESERVED_74;
+
+    U16 REG_CLKGEN0_75;
+    U16 u16REG_RESERVED_75;
+
+    U16 REG_CLKGEN0_76;
+    U16 u16REG_RESERVED_76;
+
+    U16 REG_CLKGEN0_77;
+    U16 u16REG_RESERVED_77;
+
+    U16 REG_CLKGEN0_78;
+    U16 u16REG_RESERVED_78;
+
+    U16 REG_CLKGEN0_79;
+    U16 u16REG_RESERVED_79;
+
+    U16 REG_CLKGEN0_7A;
+    U16 u16REG_RESERVED_7A;
+
+    U16 REG_CLKGEN0_7B;
+    U16 u16REG_RESERVED_7B;
+
+    U16 REG_CLKGEN0_7C;
+    U16 u16REG_RESERVED_7C;
+
+    U16 REG_CLKGEN0_7D;
+    U16 u16REG_RESERVED_7D;
+
+    U16 REG_CLKGEN0_7E;
+    U16 u16REG_RESERVED_7E;
+
+    U16 REG_CLKGEN0_7F;
+    U16 u16REG_RESERVED_7F;
+} REG_CLKGEN0_st, *PREG_CLKGEN0_st;
+
+typedef struct
+{
+    U16 REG_CLKGEN1_00;
+    U16 u16REG_RESERVED_00;
+
+	U32 u32REG_RESERVED_01;
+	U32 u32REG_RESERVED_02;
+	U32 u32REG_RESERVED_03;
+
+    U16 REG_CLKGEN1_04;
+    U16 u16REG_RESERVED_04;
+
+    U16 REG_CLKGEN1_05;
+    U16 u16REG_RESERVED_05;
+
+	U32 u32REG_RESERVED_06;
+	U32 u32REG_RESERVED_07;
+	U32 u32REG_RESERVED_08;
+	U32 u32REG_RESERVED_09;
+
+    U16 REG_CLKGEN1_0A;
+    U16 u16REG_RESERVED_0A;
+
+	U32 u32REG_RESERVED_0B;
+	U32 u32REG_RESERVED_0C;
+
+    U16 REG_CLKGEN1_0D;
+    U16 u16REG_RESERVED_0D;
+
+	U32 u32REG_RESERVED_0E;
+
+    U16 REG_CLKGEN1_0F;
+    U16 u16REG_RESERVED_0F;
+
+	U32 u32REG_RESERVED_10;
+	U32 u32REG_RESERVED_11;
+
+	U16 REG_CKG_FUART_SYN;// reg_ckg_fuart_syn;
+	U16 u16REG_RESERVED_12;
+
+	U16 u16REG_CKG_FUART;
+	U16 u16REG_RESERVED_13;
+
+	U16 REG_FUART_SYNTH0_NF;// reg_fuart_synth0_nf;
+	U16 u16REG_RESERVED_14;
+
+	U16 REG_FUART_SYNTH1_NF;
+	U16 u16REG_RESERVED_15;
+
+	U16 REG_FUART_SYNTH_CTL;
+	U16 u16REG_RESERVED_16;
+
+	U32 u32REG_RESERVED_17;
+
+    U16 REG_CLKGEN1_18;
+    U16 u16REG_RESERVED_18;
+
+	U32 u32REG_RESERVED_19;
+	U32 u32REG_RESERVED_1A;
+	U32 u32REG_RESERVED_1B;
+
+    U16 REG_CLKGEN1_1C;
+    U16 u16REG_RESERVED_1C;
+
+	U32 u32REG_RESERVED_1D;
+
+    U16 REG_CLKGEN1_1E;
+    U16 u16REG_RESERVED_1E;
+
+	U32 u32REG_RESERVED_1F;
+
+    U16 REG_CLKGEN1_20;
+    U16 u16REG_RESERVED_20;
+
+
+	U32 u32REG_RESERVED_21;
+	U32 u32REG_RESERVED_22;
+	U32 u32REG_RESERVED_23;
+	U32 u32REG_RESERVED_24;
+	U32 u32REG_RESERVED_25;
+	U32 u32REG_RESERVED_26;
+	U32 u32REG_RESERVED_27;
+
+    U16 REG_CLKGEN1_28;
+    U16 u16REG_RESERVED_28;
+
+	U32 u32REG_RESERVED_29;
+	U32 u32REG_RESERVED_2A;
+	U32 u32REG_RESERVED_2B;
+	U32 u32REG_RESERVED_2C;
+	U32 u32REG_RESERVED_2D;
+	U32 u32REG_RESERVED_2E;
+	U32 u32REG_RESERVED_2F;
+
+    U16 REG_CLKGEN1_30;
+    U16 u16REG_RESERVED_30;
+
+    U16 REG_CLKGEN1_31;
+    U16 u16REG_RESERVED_31;
+
+    U16 REG_CLKGEN1_32;
+    U16 u16REG_RESERVED_32;
+
+    U16 REG_CLKGEN1_33;
+    U16 u16REG_RESERVED_33;
+
+    U16 REG_CLKGEN1_34;
+    U16 u16REG_RESERVED_34;
+
+    U16 REG_CLKGEN1_35;
+    U16 u16REG_RESERVED_35;
+
+    U16 REG_CLKGEN1_36;
+    U16 u16REG_RESERVED_36;
+
+    U16 REG_CLKGEN1_37;
+    U16 u16REG_RESERVED_37;
+
+    U16 REG_CLKGEN1_38;
+    U16 u16REG_RESERVED_38;
+
+    U16 REG_CLKGEN1_39;
+    U16 u16REG_RESERVED_39;
+
+    U16 REG_CLKGEN1_3A;
+    U16 u16REG_RESERVED_3A;
+
+	U32 u32REG_RESERVED_3B;
+	U32 u32REG_RESERVED_3C;
+
+    U16 REG_CLKGEN1_3D;
+    U16 u16REG_RESERVED_3D;
+
+    U16 REG_CLKGEN1_3E;
+    U16 u16REG_RESERVED_3E;
+
+    U16 REG_CLKGEN1_3F;
+    U16 u16REG_RESERVED_3F;
+
+} REG_CLKGEN1_st, *PREG_CLKGEN1_st;
+
+
+typedef struct _DEVINFO{
+    U8  header[8];
+    U16 board_name;
+    U8  package_name;
+    U8  miu0_type;
+    U8  miu0_size;
+    U8  miu1_type;
+    U8  miu1_size;
+    U8  panel_type;
+    U8  rtk_flag;
+    U8  boot_device;
+	U8  uartpad_select;
+    U8  cpu_speed;
+}DEVINFO_st;
+
+typedef enum
+{
+	DEVINFO_BOOT_TYPE_SPI=0x01,
+	DEVINFO_BOOT_TYPE_EMMC=0x02,
+}DEVINFO_BOOT_TYPE;
+
+typedef enum
+{
+    DEVINFO_BD_MST154A_D01A_S    = 0x0801,
+    DEVINFO_BD_MST786_SZDEMO     = 0x0802,
+    DEVINFO_BD_MST786_CUSTOM10    = 0x0810,
+    DEVINFO_BD_MST786_CUSTOM20    = 0x0820,
+    DEVINFO_BD_MST786_CUSTOM30    = 0x0830,
+    DEVINFO_BD_MST786_CUSTOM40    = 0x0840,
+    E_BD_UNKNOWN           = 0xFFFF
+}DEVINFO_BOARD_TYPE;
+
+typedef enum
+{
+    DEVINFO_PANEL_070_DEFAULT    = 0x0,
+    DEVINFO_PANEL_HSD_070I_3459M = 0x01,
+    DEVINFO_PANEL_HSD_070I_3210B = 0x02,
+    DEVINFO_PANEL_AT_102_03TT91  = 0x03,
+    DEVINFO_PANEL_HSD_062I_DW1   = 0x04,
+    DEVINFO_PANEL_HSD_070I_DW2   = 0x05,
+    DEVINFO_PANEL_HSD_LVDS_800480= 0x06,
+    DEVINFO_PANEL_N070ICG_LD1     =0x08,
+    DEVINFO_PANEL_HSD_062I_DW2   = 0x09,
+    DEVINFO_PANEL_HSD_070I_MODE2 = 0x0a,
+    DEVINFO_PANEL_HSD_070P_FW3   = 0x0b,
+    E_PANEL_UNKNOWN           = 0xFF
+}DEVINFO_PANEL_TYPE;
+
+typedef enum
+{
+    DEVINFO_RTK_FLAG_0     = 0x0,
+    DEVINFO_RTK_FLAG_1     = 0x01,
+    E_RTK_UNKNOWN           = 0xFFFF
+}DEVINFO_RTK_FLAG;
+
+#endif // __PLATFORM_H__
+
+/* 	END */
